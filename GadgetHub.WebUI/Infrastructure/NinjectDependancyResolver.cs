@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Ninject;
+using Moq;
+using GadgetHub.Domain.Abstract;
+using GadgetHub.Domain.Entities;
+
+namespace GadgetHub.WebUI.Infrastructure
+{
+    public class NinjectDependencyResolver : IDependencyResolver
+    {
+        private IKernel mykernel;
+
+        public NinjectDependencyResolver(IKernel kernalParm)
+        {
+            mykernel = kernalParm;
+            AddBindings();
+        }
+
+        public object GetService(Type serviceType)
+        {
+            return mykernel.TryGet(serviceType);
+        }
+
+        public IEnumerable<object> GetServices(Type myServiceType)
+        {
+            return mykernel.GetAll(myServiceType);
+        }
+
+        public void AddBindings()
+        {
+            mykernel.Bind<IGadgetRepository>().To<IGadgetRepository>();
+        }   
+
+    }
+}
