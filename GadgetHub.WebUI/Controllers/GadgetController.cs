@@ -11,9 +11,9 @@ namespace GadgetHub.WebUI.Controllers
     {
         private IGadgetRepository myrepospitory;
 
-        public GadgetController (IGadgetRepository gadgetRepospitory, IGadgetRepository IGadgetRepository)
+        public GadgetController (IGadgetRepository gadgetRepository)
         {
-            this.myrepospitory = IGadgetRepository;
+            this.myrepospitory = gadgetRepository;
         }   
 
         public ViewResult List ()

@@ -15,4 +15,4 @@ namespace GadgetHub.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
-}
+}   
