@@ -7,6 +7,7 @@ using Ninject;
 using Moq;
 using GadgetHub.Domain.Abstract;
 using GadgetHub.Domain.Entities;
+using GadgetHub.Domain.Concrete;
 
 namespace GadgetHub.WebUI.Infrastructure
 {
@@ -32,6 +33,7 @@ namespace GadgetHub.WebUI.Infrastructure
 
         public void AddBindings()
         {
+            /*
             Mock<IGadgetRepository> myMock = new Mock<IGadgetRepository>();
             myMock.Setup(m => m.Gadgets).Returns(new List<Gadget>
             {
@@ -40,6 +42,8 @@ namespace GadgetHub.WebUI.Infrastructure
                 new Gadget { Name = "Keyboard", Brand = "Logitech", Price = 74.99m, Description = "Made for fast, smooth typing", Category = "Accessories" }
             });
             mykernel.Bind<IGadgetRepository>().ToConstant(myMock.Object);
+            */
+            mykernel.Bind<IGadgetRepository>().To<EFGadgetRepository>();
         }   
 
     }
