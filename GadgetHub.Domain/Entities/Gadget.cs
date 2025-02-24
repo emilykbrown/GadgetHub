@@ -11,9 +11,8 @@ namespace GadgetHub.Domain.Entities
         public int GadgetID { get; set; }
         public string GadgetName { get; set; }
         public string GadgetBrand { get; set; }
-        public decimal GadgetPrice { get; set; }
         public string GadgetDesc { get; set; }
-        public string GadgetCategory { get; set; }
+        public decimal GadgetPrice { get; set; }
 
     }
 }
