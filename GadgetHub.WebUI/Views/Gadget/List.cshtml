@@ -1,17 +1,22 @@
-﻿@using GadgetHub.Domain.Entities
-@model IEnumerable<Gadget>
+﻿@using GadgetHub.WebUI.HtmlHelpers
 
-@{ 
+@model GadgetHub.WebUI.Models.GadgetsListViewModel
+
+@{
     ViewBag.Title = "Gadgets";
 }
 
-@foreach (var p in Model)
+@foreach (var g in Model.Gadgets)
 {
     <div>
-        <h3>@p.GadgetName</h3>
-        @p.GadgetBrand
-        @p.GadgetDesc
-        @p.GadgetCategory
-        <h4>@p.GadgetPrice.ToString("c")</h4>
+        <h3>@g.GadgetName</h3>
+        @g.GadgetBrand
+        @g.GadgetDesc
+        @g.GadgetCategory
+        <h4>@g.GadgetPrice.ToString("c")</h4>
     </div>
 }
+
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
