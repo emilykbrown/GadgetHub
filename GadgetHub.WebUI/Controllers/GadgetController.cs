@@ -19,23 +19,27 @@ namespace GadgetHub.WebUI.Controllers
 
         public int PageSize = 3;
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string GadgetCategory, int page = 1)
         {
             GadgetsListViewModel model = new GadgetsListViewModel
             {
-                Gadgets = myrepospitory.Gadgets.OrderBy(g => g.GadgetID)
-                                               .Skip((page - 1) * PageSize)
-                                               .Take(PageSize),
+                Gadgets = myrepospitory.Gadgets
+                                        .Where(g => GadgetCategory == null || g.GadgetCategory == GadgetCategory)
+                                        .OrderBy(g => g.GadgetID)
+                                        .Skip((page - 1) * PageSize)
+                                        .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
                     TotalItems = myrepospitory.Gadgets.Count()
-                }
+                },
+                CurrentGadgetCategory = GadgetCategory
+
+
 
             };
-        return View(model);
-
+            return View(model);
         }
     }
 }
