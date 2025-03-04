@@ -32,7 +32,10 @@ namespace GadgetHub.WebUI.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = myrepospitory.Gadgets.Count()
+                    TotalItems = GadgetCategory == null ?
+                                myrepospitory.Gadgets.Count() :
+                                myrepospitory.Gadgets.Where
+                                    (e => e.GadgetCategory == GadgetCategory).Count()
                 },
                 CurrentGadgetCategory = GadgetCategory
 
