@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GadgetHub.Domain.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,21 @@ namespace GadgetHub.WebUI.Controllers
 {
     public class NavController : Controller
     {
-     
-    public string Menu()
+
+        private IGadgetRepository repository;
+
+        public NavController (IGadgetRepository repo)
         {
-            return "Hi Mom";
+           repository = repo;
         }
-    
+
+        public PartialViewResult Menu()
+        {
+            IEnumerable<string> GadgetCategories = repository.Gadgets.Select(x => x.GadgetCategory)
+                                                                                   .Distinct()
+                                                                                   .OrderBy(x => x);
+
+            return PartialView(GadgetCategories);
+        }
     }
 }

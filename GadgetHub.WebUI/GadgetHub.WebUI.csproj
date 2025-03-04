@@ -136,6 +136,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Gadget\List.cshtml" />
     <Content Include="Views\Shared\GadgetSummary.cshtml" />
+    <Content Include="Views\Nav\Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Nav\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GadgetHub.Domain\GadgetHub.Domain.csproj">
