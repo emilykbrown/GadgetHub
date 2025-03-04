@@ -8,15 +8,7 @@
 
 @foreach (var g in Model.Gadgets)
 {
-    <div class="card p-3 bg-light text-dark mb-2">
-       <h3>
-           <strong>@g.GadgetName</strong>
-            <span class="badge bg-primary">
-              @g.GadgetPrice.ToString("c")
-            </span>
-       </h3>
-        <span class="lead">@g.GadgetDesc</span>
-    </div>
+    @Html.Partial("GadgetSummary", g)  
 }
 
 <div>

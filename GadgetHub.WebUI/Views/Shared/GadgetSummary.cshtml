@@ -1,0 +1,15 @@
+﻿@model GadgetHub.Domain.Entities.Gadget
+
+@{
+    ViewBag.Title = "Gadgets";
+}
+
+<div class="card p-3 bg-light text-dark mb-2">
+    <h3>
+        <strong>@Model.GadgetName</strong>
+        <span class="badge bg-primary">
+            @Model.GadgetPrice.ToString("c")
+        </span>
+    </h3>
+    <span class="lead">@Model.GadgetDesc</span>
+</div>
