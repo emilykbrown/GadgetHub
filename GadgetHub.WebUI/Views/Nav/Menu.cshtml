@@ -10,9 +10,9 @@
    @Html.RouteLink(link, new {
     Controller = "Gadget",
     Action = "List",
-    category = link,
+    GadgetCategory = link,
     page = 1},
     new { @class = "btn btn-outline-secondary w-100 btn-lg mb-2"    
-            + (link == ViewBag.SelectedCategpry ? "action" : "a")
+            + (link == ViewBag.SelectedGadgetCategpry ? "action" : "")
     })
 }
