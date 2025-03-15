@@ -4,9 +4,16 @@
     ViewBag.Title = "GadgetHub: Your Cart";
 }
 
+<style>
+    #cartTable 
+    {
+        vertical-align: middle;
+    }
+</style>
+
 <h2>Your Cart</h2>
 
-<table class="table">
+<table id="cartTable" class="table">
 
     <thead>
         <tr>
@@ -21,10 +28,18 @@
         @foreach (var line in Model.Cart.Lines)
         {
             <tr>
-                <th class="text-center">@line.Quantity</th>
-                <th>@line.Gadget.GadgetName</th>
-                <th class="text-end">@line.Gadget.GadgetPrice.ToString("c")</th>
-                <th class="text-end">@((line.Quantity * @line.Gadget.GadgetPrice).ToString("c"))</th>
+                <td class="text-center">@line.Quantity</td>
+                <td>@line.Gadget.GadgetName</td>
+                <td class="text-end">@line.Gadget.GadgetPrice.ToString("c")</td>
+                <td class="text-end">@((line.Quantity * @line.Gadget.GadgetPrice).ToString("c"))</td>
+                <td>
+                   @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                    @Html.Hidden("GadgetID", line.Gadget.GadgetID)
+                    @Html.HiddenFor(x => x.ReturnURL)
+                    <input type="submit" class="btn btn-warning" value="Remove"/>
+                }
+                </td>
             </tr>
         }
 

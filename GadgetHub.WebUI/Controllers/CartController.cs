@@ -1,10 +1,6 @@
 ﻿using GadgetHub.Domain.Abstract;
 using GadgetHub.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using GadgetHub.WebUI.Models;
 
@@ -13,7 +9,8 @@ namespace GadgetHub.WebUI.Controllers
     public class CartController : Controller
     {
         private IGadgetRepository repository;
-        public CartController (IGadgetRepository repo)
+
+        public CartController(IGadgetRepository repo)
         {
             repository = repo;
         }
@@ -23,48 +20,44 @@ namespace GadgetHub.WebUI.Controllers
             Cart cart = (Cart)Session["Cart"];
 
             if (cart == null)
-            { 
+            {
                 cart = new Cart();
                 Session["Cart"] = cart;
             }
             return cart;
-
         }
 
         public RedirectToRouteResult AddToCart(int GadgetID, string returnUrl)
         {
-            Gadget gadget = repository.Gadgets.FirstOrDefault
-                                                (g => g.GadgetID == GadgetID);
+            Gadget gadget = repository.Gadgets.FirstOrDefault(g => g.GadgetID == GadgetID);
 
             if (gadget != null)
             {
                 GetCart().AddItem(gadget, 1);
             }
-            return RedirectToAction("Index", new { returnUrl });
 
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToRouteResult RemoveFromCart(int GadgetID, string returnUrl)
         {
-            Gadget gadget = repository.Gadgets.FirstOrDefault
-                                                (g => g.GadgetID == GadgetID);
-            
+            Gadget gadget = repository.Gadgets.FirstOrDefault(g => g.GadgetID == GadgetID);
+
             if (gadget != null)
             {
                 GetCart().RemoveLine(gadget);
             }
-            return RedirectToAction("Index", new {returnUrl});
 
+            return RedirectToAction("Index", new { returnUrl });
         }
 
-        public ViewResult Index(string returnURL)
+        public ViewResult Index(string returnUrl)
         {
             return View(new CartIndexViewModel
             {
                 Cart = GetCart(),
-                ReturnURL = returnURL
+                ReturnURL = returnUrl
             });
         }
     }
-
 }
