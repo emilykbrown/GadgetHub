@@ -59,5 +59,10 @@ namespace GadgetHub.WebUI.Controllers
                 ReturnURL = returnUrl
             });
         }
+        
+        public PartialViewResult Summary (Cart cart)
+        {
+            return PartialView(cart);
+        }
     }
 }
