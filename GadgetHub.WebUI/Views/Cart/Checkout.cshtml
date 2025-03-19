@@ -19,10 +19,11 @@
     foreach (var property in ViewData.ModelMetadata.Properties)
     {
         if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+
         {
             <div class="form-group">
                 <label>@(property.DisplayName ?? property.PropertyName)</label>
-                @Html.TextBox(property.PropertyName, null, new {@class = "form-controol"})
+                @Html.TextBox(property.PropertyName, null, new {@class = "form-control"})
             </div>
         }
     }
@@ -35,7 +36,7 @@
         </label>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mt-3">
         <input class="btn btn-primary" type="submit" value="Complete order" />
     </div>
 }
