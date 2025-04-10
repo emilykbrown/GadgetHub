@@ -1,5 +1,6 @@
 ﻿@model GadgetHub.Domain.Entities.Cart
-tems@*Cart Summary*@
+
+@*Cart Summary*@
 <div class="navbar-text navbar-right">
     <b>Your cart: </b>
     @Model.Lines.Sum(x => x.Quantity) item(s),

@@ -50,7 +50,7 @@ namespace GadgetHub.Domain.Entities
         }
 
         // Remove product
-        public void RemoveLine(Gadget myGadget)
+        public void RemoveLine(Gadget myGadget)  
         {
             lineCollection.RemoveAll(line => line.Gadget.GadgetID == myGadget.GadgetID);
         }
