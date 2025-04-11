@@ -10,6 +10,8 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(false, "", new { @class = "field-validation-error" })
+
     <h3>Ship to</h3>
     <div class="form-group">
         <label>Name: </label>
@@ -23,7 +25,7 @@
         {
             <div class="form-group">
                 <label>@(property.DisplayName ?? property.PropertyName)</label>
-                @Html.TextBox(property.PropertyName, null, new {@class = "form-control"})
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
             </div>
         }
     }
@@ -31,7 +33,7 @@
     <h3>Options</h3>
     <div class="checkbox">
         <label>
-          @Html.CheckBoxFor(x => x.GiftWrap)
+            @Html.CheckBoxFor(x => x.GiftWrap)
             Gift wrap these items
         </label>
     </div>
