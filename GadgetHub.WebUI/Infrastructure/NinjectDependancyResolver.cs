@@ -39,7 +39,7 @@ namespace GadgetHub.WebUI.Infrastructure
                 WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "False")
             };
 
-            mykernel.Bind<IOrderProcessor>().To<IOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+            mykernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
         }
 
     }
