@@ -1,7 +1,7 @@
 ﻿@model GadgetHub.Domain.Entities.Gadget
 
 @{
-    ViewBag.Title = "Admin: Edit" + @Model.GadgetName;
+    ViewBag.Title = "Admin: Edit " + @Model.GadgetName;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -33,6 +33,8 @@
                         {
                             @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                         }
+
+                        @Html.ValidationMessage(property.PropertyName) 
                     </div>
                 }
             }

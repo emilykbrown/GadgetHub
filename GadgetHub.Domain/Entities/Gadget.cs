@@ -14,20 +14,26 @@ namespace GadgetHub.Domain.Entities
         [HiddenInput(DisplayValue = false)]
         public int GadgetID { get; set; }
 
-        [Display(Name = "Product Name")]
+        [Display(Name = "Gadget Name")]
+        [Required(ErrorMessage = "Please enter a gadget name")]
         public string GadgetName { get; set; }
 
         [Display(Name = "Brand")]
+        [Required(ErrorMessage = "Please enter a brand name")]
         public string GadgetBrand { get; set; }
 
         [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "Please enter a description")]
         public string GadgetDesc { get; set; }
 
         [Display(Name = "Category")]
+        [Required(ErrorMessage = "Please enter a category")]
         public string GadgetCategory { get; set; }
 
         [Display(Name = "Price")]
+        [Required]
+        [Range(0.01, 1000, ErrorMessage = "Please enter a positive price")]
         public decimal GadgetPrice { get; set; }
     }
 }
