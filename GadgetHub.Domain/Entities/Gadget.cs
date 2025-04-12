@@ -10,15 +10,24 @@ namespace GadgetHub.Domain.Entities
 {
     public class Gadget
     {
-        [HiddenInput (DisplayValue = false)]
+
+        [HiddenInput(DisplayValue = false)]
         public int GadgetID { get; set; }
+
+        [Display(Name = "Product Name")]
         public string GadgetName { get; set; }
+
+        [Display(Name = "Brand")]
         public string GadgetBrand { get; set; }
 
+        [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
         public string GadgetDesc { get; set; }
-        public string GadgetCategory { get; set; }
-        public decimal GadgetPrice { get; set; }
 
+        [Display(Name = "Category")]
+        public string GadgetCategory { get; set; }
+
+        [Display(Name = "Prices")]
+        public decimal GadgetPrice { get; set; }
     }
 }
