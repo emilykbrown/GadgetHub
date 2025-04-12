@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using GadgetHub.Domain.Abstract;
+using System.Linq;
+using GadgetHub.Domain.Entities;    
 
 namespace GadgetHub.WebUI.Controllers
 {
@@ -16,5 +18,12 @@ namespace GadgetHub.WebUI.Controllers
         {
             return View(repository.Gadgets);
         }
+
+        public ViewResult Edit(int GadgetID)
+        {
+            Gadget gadget = repository.Gadgets
+                .FirstOrDefault(g => g.GadgetID == GadgetID);
+            return View(gadget);
+        }   
     }
 }

@@ -1,0 +1,16 @@
+﻿@model GadgetHub.Domain.Entities.Gadget
+
+@{
+    ViewBag.Title = "Admin: Edit" + @Model.GadgetName;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit @Model.GadgetName</h1>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    
+    <input type="submit" value="Save" />
+
+    @Html.ActionLink("Cancel and return to ", "Index")
+}
