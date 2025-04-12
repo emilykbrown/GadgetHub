@@ -27,7 +27,7 @@ namespace GadgetHub.Domain.Entities
         [Display(Name = "Category")]
         public string GadgetCategory { get; set; }
 
-        [Display(Name = "Prices")]
+        [Display(Name = "Price")]
         public decimal GadgetPrice { get; set; }
     }
 }
