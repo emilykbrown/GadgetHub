@@ -5,12 +5,43 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Edit @Model.GadgetName</h1>
-@using (Html.BeginForm())
-{
-    @Html.EditorForModel()
-    
-    <input type="submit" value="Save" />
+<div class="card">
 
-    @Html.ActionLink("Cancel and return to ", "Index")
-}
+    <div class="card-header">
+        <h2>Edit @Model.GadgetName</h2>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.HiddenFor(m => m.GadgetID)
+
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "GadgetID")
+                {
+                    <div class="mb-3">
+                        <label class="form-label">
+                            @(property.DisplayName ?? property.PropertyName)
+                        </label>
+
+                        @if (property.PropertyName == "GadgetDesc")
+                        {
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                        }
+                        else
+                        {
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="card-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+            }
+
+        </div>
