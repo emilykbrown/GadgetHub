@@ -20,7 +20,10 @@ namespace GadgetHub.Domain.Concrete
         {
             if (gadget.GadgetID == 0)
             {
-               
+                context.Gadgets.Add(gadget);
+            }
+            else
+            {
                 Gadget dbEntry = context.Gadgets.Find(gadget.GadgetID);
                 if (dbEntry != null)
                 {

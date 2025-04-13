@@ -40,5 +40,10 @@ namespace GadgetHub.WebUI.Controllers
                 return View(gadget);
             }
         }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Gadget());
+        }
     }
 }

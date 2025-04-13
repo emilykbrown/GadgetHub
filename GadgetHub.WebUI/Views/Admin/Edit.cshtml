@@ -11,7 +11,7 @@
         <h2>Edit @Model.GadgetName</h2>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Admin"))
     {
         <div>
             @Html.HiddenFor(m => m.GadgetID)
