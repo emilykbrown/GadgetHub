@@ -11,39 +11,53 @@
         <h2>Edit @Model.GadgetName</h2>
     </div>
 
-    @using (Html.BeginForm("Edit", "Admin"))
+    @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div>
+        <div class="card-body">
             @Html.HiddenFor(m => m.GadgetID)
 
             @foreach (var property in ViewData.ModelMetadata.Properties)
             {
-                if (property.PropertyName != "GadgetID")
+                switch (property.PropertyName)
                 {
-                    <div class="mb-3">
-                        <label class="form-label">
-                            @(property.DisplayName ?? property.PropertyName)
-                        </label>
+                    case "GadgetID":
+                    case "ImageData":
+                    case "ImageMimeType":
+                        break;
 
-                        @if (property.PropertyName == "GadgetDesc")
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                        }
-                        else
-                        {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                        }
+                    default:
+                        <div class="mb-3">
+                            <label class="form-label">
+                                @(property.DisplayName ?? property.PropertyName)
+                            </label>
 
-                        @Html.ValidationMessage(property.PropertyName) 
-                    </div>
+                            @if (property.PropertyName == "GadgetDesc")
+                            {
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                        break;
+
                 }
             }
+
+        <div class="">
+
+        </div>
+
+        @*End of card body*@
         </div>
 
         <div class="card-footer">
             <input type="submit" value="Save" class="btn btn-primary" />
             @Html.ActionLink("Cancel and return to List", "Index", null, new { @class = "btn btn-secondary" })
-            </div>
-            }
-
         </div>
+    }
+
+</div>

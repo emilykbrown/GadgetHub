@@ -5,6 +5,7 @@ using GadgetHub.Domain.Entities;
 
 namespace GadgetHub.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IGadgetRepository repository;

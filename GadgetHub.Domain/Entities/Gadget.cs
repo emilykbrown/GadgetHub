@@ -35,5 +35,9 @@ namespace GadgetHub.Domain.Entities
         [Required]
         [Range(0.01, 1000, ErrorMessage = "Please enter a positive price")]
         public decimal GadgetPrice { get; set; }
+        [Display(Name = "Image")]
+        public byte[] ImageData { get; set; }
+        [Display(Name = "Image Mime Type")]
+        public string ImageMimeType { get; set; }
     }
 }
