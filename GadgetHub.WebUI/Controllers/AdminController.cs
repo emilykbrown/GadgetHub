@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using GadgetHub.Domain.Abstract;
 using System.Linq;
-using GadgetHub.Domain.Entities;    
+using GadgetHub.Domain.Entities;
 
 namespace GadgetHub.WebUI.Controllers
 {
@@ -11,7 +11,7 @@ namespace GadgetHub.WebUI.Controllers
 
         public AdminController(IGadgetRepository repo)
         {
-           repository = repo;
+            repository = repo;
         }
 
         public ViewResult Index()
@@ -44,6 +44,17 @@ namespace GadgetHub.WebUI.Controllers
         public ViewResult Create()
         {
             return View("Edit", new Gadget());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int GadgetID)
+        {
+            Gadget deletedGadget = repository.DeleteGadget(GadgetID);
+            if (deletedGadget != null)
+            {
+                TempData["message"] = string.Format("{0} was deleted", deletedGadget.GadgetName);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

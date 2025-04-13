@@ -36,5 +36,17 @@ namespace GadgetHub.Domain.Concrete
             }
             context.SaveChanges();
         }
+
+
+        public Gadget DeleteGadget(int gadgetID)
+        {
+            Gadget dbEntry = context.Gadgets.Find(gadgetID);
+            if (dbEntry != null)
+            {
+                context.Gadgets.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
-}
+} 
