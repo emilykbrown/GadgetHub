@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GadgetHub.Domain.Abstract;
+using GadgetHub.Domain.Entities;
 using GadgetHub.WebUI.Models;
 
 namespace GadgetHub.WebUI.Controllers
@@ -30,7 +31,7 @@ namespace GadgetHub.WebUI.Controllers
                                         .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = page, 
                     ItemsPerPage = PageSize,
                     TotalItems = GadgetCategory == null ?
                                 myrepospitory.Gadgets.Count() :
@@ -43,6 +44,20 @@ namespace GadgetHub.WebUI.Controllers
 
             };
             return View(model);
+        }
+
+        public FileContentResult GetImage(int GadgetID)
+        {
+            Gadget gadget = myrepospitory.Gadgets
+                .FirstOrDefault(g => g.GadgetID == GadgetID);
+            if (gadget != null)
+            {
+                return File(gadget.ImageData, gadget.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

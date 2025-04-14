@@ -2,6 +2,7 @@
 using GadgetHub.Domain.Abstract;
 using System.Linq;
 using GadgetHub.Domain.Entities;
+using System.Web;
 
 namespace GadgetHub.WebUI.Controllers
 {
@@ -31,6 +32,28 @@ namespace GadgetHub.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                repository.SaveGadget(gadget);
+                TempData["message"] = string.Format("{0} has been saved", gadget.GadgetName);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(gadget);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Save(Gadget gadget, HttpPostedFileBase image=null)
+        {
+            if (ModelState.IsValid)
+            {
+                if (image != null)
+                {
+                    gadget.ImageMimeType = image.ContentType;
+                    gadget.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(gadget.ImageData, 0, image.ContentLength);
+                }
                 repository.SaveGadget(gadget);
                 TempData["message"] = string.Format("{0} has been saved", gadget.GadgetName);
                 return RedirectToAction("Index");
