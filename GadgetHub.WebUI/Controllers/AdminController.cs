@@ -44,7 +44,7 @@ namespace GadgetHub.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Gadget gadget, HttpPostedFileBase image=null)
+        public ActionResult Edit(Gadget gadget, HttpPostedFileBase image=null)
         {
             if (ModelState.IsValid)
             {

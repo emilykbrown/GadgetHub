@@ -110,6 +110,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\content\bootstrap-grid.css" />
+    <Content Include="Content\content\bootstrap-grid.min.css" />
+    <Content Include="Content\content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\content\bootstrap-reboot.css" />
+    <Content Include="Content\content\bootstrap-reboot.min.css" />
+    <Content Include="Content\content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\content\bootstrap-utilities.css" />
+    <Content Include="Content\content\bootstrap-utilities.min.css" />
+    <Content Include="Content\content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\content\bootstrap.css" />
+    <Content Include="Content\content\bootstrap.min.css" />
+    <Content Include="Content\content\bootstrap.rtl.css" />
+    <Content Include="Content\content\bootstrap.rtl.min.css" />
+    <Content Include="Content\content\ErrorStyles.css" />
+    <Content Include="Content\content\Site.css" />
     <Content Include="Content\ErrorStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -119,6 +137,22 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\content\bootstrap-grid.css.map" />
+    <Content Include="Content\content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\content\bootstrap-reboot.css.map" />
+    <Content Include="Content\content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\content\bootstrap-utilities.css.map" />
+    <Content Include="Content\content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\content\bootstrap.css.map" />
+    <Content Include="Content\content\bootstrap.min.css.map" />
+    <Content Include="Content\content\bootstrap.rtl.css.map" />
+    <Content Include="Content\content\bootstrap.rtl.min.css.map" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />

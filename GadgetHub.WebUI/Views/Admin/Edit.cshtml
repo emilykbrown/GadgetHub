@@ -40,7 +40,7 @@
                                 @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                             }
 
-                            @Html.ValidationMessage(property.PropertyName)
+                            @Html.ValidationMessage(property.PropertyName)      
                         </div>
                         break;
 
@@ -57,7 +57,7 @@
                      background-color:transparent;color:transparent;"
                            onchange='$("#upload-file-info").html($(this).val());' />
                 </a>
-                <span class='label label-info' id="upload-file-info"></span>
+                <span class="label label-info" id="upload-file-info"></span>
             </div>
 
             @if (Model.ImageData == null)
@@ -67,7 +67,7 @@
             else
             {
                 <img class="img-thumbnail" width="150" height="150" 
-                     src="@Url.Action("GetImage", "Product", new {Model.GadgetID})" />
+                     src="@Url.Action("GetImage", "Gadget", new {Model.GadgetID})" />
             }
         </div>
 
